@@ -1,0 +1,31 @@
+{
+  "name": "movies-explorer-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "lint": "npx eslint .",
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Milenium666/movies-explorer-api.git"
+  },
+  "keywords": [],
+  "author": "Elena Padun",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Milenium666/movies-explorer-api/issues"
+  },
+  "homepage": "https://github.com/Milenium666/movies-explorer-api#readme",
+  "dependencies": {
+    "cookie-parser": "^1.4.5",
+    "express": "^4.17.1",
+    "mongoose": "^6.0.12",
+    "validator": "^13.7.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.14"
+  }
+}
