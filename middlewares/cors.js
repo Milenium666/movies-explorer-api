@@ -1,7 +1,7 @@
 const allowedCors = [
-  "http://localhost:8080",
+  'http://localhost:8080',
 
-  "https://localhost:8080",
+  'https://localhost:8080',
 ];
 
 const corsOption = (req, res, next) => {
@@ -13,24 +13,24 @@ const corsOption = (req, res, next) => {
 
   const { method } = req;
 
-  const requestHeaders = req.headers["access-control-request-headers"];
+  const requestHeaders = req.headers['access-control-request-headers'];
 
-  const DEFAULT_ALLOWED_METHODS = "GET,HEAD,PUT,PATCH,POST,DELETE";
+  const DEFAULT_ALLOWED_METHODS = 'GET,HEAD,PUT,PATCH,POST,DELETE';
 
   if (allowedCors.includes(origin)) {
     // устанавливаем заголовок, который разрешает браузеру запросы с этого источника
 
-    res.header("Access-Control-Allow-Origin", origin);
+    res.header('Access-Control-Allow-Origin', origin);
 
-    res.header("Access-Control-Allow-Credentials", true);
+    res.header('Access-Control-Allow-Credentials', true);
   }
 
-  if (method === "OPTIONS") {
+  if (method === 'OPTIONS') {
     // разрешаем кросс-доменные запросы любых типов (по умолчанию)
 
-    res.header("Access-Control-Allow-Methods", DEFAULT_ALLOWED_METHODS);
+    res.header('Access-Control-Allow-Methods', DEFAULT_ALLOWED_METHODS);
 
-    res.header("Access-Control-Allow-Headers", requestHeaders);
+    res.header('Access-Control-Allow-Headers', requestHeaders);
 
     // завершаем обработку запроса и возвращаем результат клиенту
 
@@ -39,3 +39,5 @@ const corsOption = (req, res, next) => {
 
   return next();
 };
+
+module.exports = corsOption;

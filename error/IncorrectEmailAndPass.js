@@ -1,5 +1,3 @@
-/* eslint-disable linebreak-style */
-
 class IncorrectEmailAndPass extends Error {
   constructor(message) {
     super(message);
