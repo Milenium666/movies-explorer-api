@@ -8,7 +8,6 @@ const {
   salt,
   RE_REGISTRATION,
   INCORECT_DATA_REG_USER,
-  SERVER_ERROR,
   INCORRECT_EMAIL_AND_PASSWORD,
   JWT_KEY_SEKRET,
   NO_USER_WITH_SUCH_ID,
@@ -19,7 +18,6 @@ const {
 
 const RepeatRegistEmail = require('../error/RepeatRegistEmail');
 const IncorectData = require('../error/IncorectData');
-const ServerError = require('../error/ServerError');
 const IncorrectEmailAndPass = require('../error/IncorrectEmailAndPass');
 const DataNotFound = require('../error/DataNotFound');
 
@@ -43,7 +41,7 @@ const createUser = (req, res, next) => {
           if (err.name === 'ValidationError') {
             next(new IncorectData(INCORECT_DATA_REG_USER));
           }
-          next(new ServerError(SERVER_ERROR));
+          next(err);
         });
     })
     .catch(next);
@@ -70,9 +68,7 @@ const login = (req, res, next) => {
         });
       }
     })
-    .catch(() => {
-      next(new ServerError(SERVER_ERROR));
-    });
+    .catch(next);
 };
 
 const getInfoUser = (req, res, next) => {
@@ -83,9 +79,7 @@ const getInfoUser = (req, res, next) => {
       }
       res.status(OK).send(user);
     })
-    .catch(() => {
-      next(new ServerError(SERVER_ERROR));
-    });
+    .catch(next);
 };
 const updateInfoUser = (req, res, next) => {
   const { name, email } = req.body;
@@ -108,6 +102,7 @@ const updateInfoUser = (req, res, next) => {
       } if (err.name === 'ValidationError') {
         next(new IncorectData(INCORECT_DATA_USER_UPDATE));
       }
+      next(err);
     });
 };
 
