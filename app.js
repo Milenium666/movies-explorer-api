@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
+const { errors } = require('celebrate');
 
 const corsOption = require('./middlewares/cors');
 const { DB, REQ_NON_EXISTENT_ADDRESS } = require('./utils/constans');
@@ -8,7 +9,7 @@ const DataNotFound = require('./error/DataNotFound');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 const { errorHandler } = require('./middlewares/errorHandler');
 
-const { PORT = 8080 } = process.env;
+const { PORT = 3000 } = process.env;
 
 const app = express();
 app.use(corsOption);
@@ -29,6 +30,7 @@ app.use((req, res, next) => {
 });
 app.use(errorLogger);
 app.use(errorHandler);
+app.use(errors());
 
 app.listen(PORT, () => {
   // Если всё работает, консоль покажет, какой порт приложение слушает
