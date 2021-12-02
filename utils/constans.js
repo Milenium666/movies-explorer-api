@@ -1,7 +1,10 @@
 const OK = 200;
+const STATUS_500 = 500;
 const salt = 10;
 
 const JWT_KEY_SEKRET = 'super-strong-secret';
+
+const DB = 'mongodb://localhost:27017/moviesdb';
 
 const RE_REGISTRATION = 'Пользователь с таким Email уже есть в системе';
 const INCORECT_DATA_REG_USER = 'Введены некрректные данные при создании пользователя';
@@ -11,6 +14,10 @@ const AUTHORIZATION_REQUIRED = 'Необходима авторизация';
 const NO_USER_WITH_SUCH_ID = 'Нет пользователя с таким ID';
 const IS_VALID = 'Невалидный ID';
 const INCORECT_DATA_USER_UPDATE = 'Введены некрректные данные при обновлении данных пользователя';
+const INCORECT_DATA_CREATE_MOVIE = 'Введены некрректные данные при создании фильма';
+const NO_MOVIE_WITH_SUCH_ID = 'Нет фильма с таким ID';
+const NO_RIGTHS_DELETE_SOMEONE_MOVIE = 'Нет прав для удаления ';
+const REQ_NON_EXISTENT_ADDRESS = 'Запрос на несуществующий адрес';
 
 module.exports = {
   OK,
@@ -24,4 +31,10 @@ module.exports = {
   NO_USER_WITH_SUCH_ID,
   IS_VALID,
   INCORECT_DATA_USER_UPDATE,
+  INCORECT_DATA_CREATE_MOVIE,
+  NO_MOVIE_WITH_SUCH_ID,
+  NO_RIGTHS_DELETE_SOMEONE_MOVIE,
+  DB,
+  STATUS_500,
+  REQ_NON_EXISTENT_ADDRESS,
 };
