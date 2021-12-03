@@ -1,7 +1,8 @@
 const allowedCors = [
-  'http://localhost:8080',
-
-  'https://localhost:8080',
+  'http://localhost:3000',
+  'https://localhost:3000',
+  'https://movies-explorer.elena.nomoredomains.rocks/api/',
+  'http://movies-explorer.elena.nomoredomains.rocks/api/',
 ];
 
 const corsOption = (req, res, next) => {

@@ -2,6 +2,7 @@ const jwt = require('jsonwebtoken');
 
 const IncorrectEmailAndPass = require('../error/IncorrectEmailAndPass');
 
+const { JWT_KEY_SEKRET, NODE_ENV } = process.env;
 const {
   JWT_KEY_SEKRET,
   AUTHORIZATION_REQUIRED,
@@ -17,7 +18,7 @@ module.exports = (req, res, next) => {
   let payload;
 
   try {
-    payload = jwt.verify(token, JWT_KEY_SEKRET);
+    payload = jwt.verify(token, NODE_ENV === 'production' ? JWT_KEY_SEKRET : 'super-strong-secret');
   } catch (err) {
     next(new IncorrectEmailAndPass(AUTHORIZATION_REQUIRED));
   }

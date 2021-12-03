@@ -60,7 +60,7 @@ const login = (req, res, next) => {
           } else {
             const token = jwt.sign(
               { id: user._id },
-              JWT_KEY_SEKRET,
+              NODE_ENV === 'production' ? JWT_KEY_SEKRET : 'super-strong-secret',
               { expiresIn: '7d' },
             );
             res.status(OK).send({ token });
