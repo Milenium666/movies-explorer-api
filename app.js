@@ -2,10 +2,11 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
 const { errors } = require('celebrate');
+const router = require('./routes/index');
 
 const corsOption = require('./middlewares/cors');
-const { DB, REQ_NON_EXISTENT_ADDRESS } = require('./utils/constans');
-const DataNotFound = require('./error/DataNotFound');
+const { DB } = require('./utils/constans');
+
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 const { errorHandler } = require('./middlewares/errorHandler');
 
@@ -23,11 +24,8 @@ mongoose.connect(DB, {
 
 app.use(requestLogger);
 
-app.use('/', require('./routes/index'));
+app.use(router);
 
-app.use((req, res, next) => {
-  next(new DataNotFound(REQ_NON_EXISTENT_ADDRESS));
-});
 app.use(errorLogger);
 app.use(errorHandler);
 app.use(errors());

@@ -2,8 +2,6 @@ const OK = 200;
 const STATUS_500 = 500;
 const salt = 10;
 
-const JWT_KEY_SEKRET = 'super-strong-secret';
-
 const DB = 'mongodb://localhost:27017/moviesdb';
 
 const RE_REGISTRATION = 'Пользователь с таким Email уже есть в системе';
@@ -26,7 +24,6 @@ module.exports = {
   INCORECT_DATA_REG_USER,
   SERVER_ERROR,
   INCORRECT_EMAIL_AND_PASSWORD,
-  JWT_KEY_SEKRET,
   AUTHORIZATION_REQUIRED,
   NO_USER_WITH_SUCH_ID,
   IS_VALID,

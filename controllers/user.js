@@ -1,6 +1,6 @@
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-
+const dotenv = require('dotenv');
 const User = require('../models/user');
 
 const {
@@ -9,12 +9,14 @@ const {
   RE_REGISTRATION,
   INCORECT_DATA_REG_USER,
   INCORRECT_EMAIL_AND_PASSWORD,
-  JWT_KEY_SEKRET,
   NO_USER_WITH_SUCH_ID,
   IS_VALID,
   INCORECT_DATA_USER_UPDATE,
 
 } = require('../utils/constans');
+
+dotenv.config();
+const { NODE_ENV, JWT_KEY_SEKRET } = process.env;
 
 const RepeatRegistEmail = require('../error/RepeatRegistEmail');
 const IncorectData = require('../error/IncorectData');

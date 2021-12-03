@@ -1,10 +1,11 @@
 const jwt = require('jsonwebtoken');
+const dotenv = require('dotenv');
 
 const IncorrectEmailAndPass = require('../error/IncorrectEmailAndPass');
 
+dotenv.config();
 const { JWT_KEY_SEKRET, NODE_ENV } = process.env;
 const {
-  JWT_KEY_SEKRET,
   AUTHORIZATION_REQUIRED,
 } = require('../utils/constans');
 
