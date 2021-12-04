@@ -11,8 +11,6 @@ const erorrAdress = require('./errorAndress');
 router.post('/signup', validateCreateUser, createUser);
 router.post('/signin', validateLogin, login);
 
-router.use(erorrAdress);
-
 router.use(auth, require('./user'));
 router.use(auth, require('./movie'));
 
