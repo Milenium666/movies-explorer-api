@@ -109,7 +109,6 @@ const updateInfoUser = (req, res, next) => {
       if (err.name === 'ReferenceError') {
         next(new DataNotFound(IS_VALID));
       } else {
-        console.log(err);
         next(err);
       }
     });
