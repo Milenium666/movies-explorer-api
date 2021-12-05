@@ -53,15 +53,14 @@ const deleteMovie = (req, res, next) => {
   const userId = req.user.id;
 
   Movie.findById(movieId)
-    .then(((movie) => {
+    .then((async (movie) => {
       if (!movie) {
         next(new DataNotFound(NO_MOVIE_WITH_SUCH_ID));
-      } if (userId !== movie.owner.toString()) {
-        next(new NoRight(NO_RIGTHS_DELETE_SOMEONE_MOVIE));
-      } else {
-        Movie.deleteOne(movie)
-          .then(() => res.status(OK).send(movie));
+      } if (userId.toString() === movie.owner.toString()) {
+        await Movie.deleteOne(movie);
+        res.send(movie);
       }
+      next(new NoRight(NO_RIGTHS_DELETE_SOMEONE_MOVIE));
     }))
     .catch((err) => {
       if (err.name === 'ReferenceError') {
