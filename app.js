@@ -27,8 +27,8 @@ app.use(requestLogger);
 app.use('/api', router);
 
 app.use(errorLogger);
-app.use(errorHandler);
 app.use(errors());
+app.use(errorHandler);
 
 app.listen(PORT, () => {
   // Если всё работает, консоль покажет, какой порт приложение слушает
