@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
 const { errors } = require('celebrate');
 const router = require('./routes/index');
+require('dotenv').config();
 
 const corsOption = require('./middlewares/cors');
 const { DB } = require('./utils/constans');
@@ -10,7 +11,7 @@ const { DB } = require('./utils/constans');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 const { errorHandler } = require('./middlewares/errorHandler');
 
-const { PORT = 3000 } = process.env;
+const { PORT = 3000, NODE_ENV, DB_PODUCTION } = process.env;
 
 const app = express();
 app.use(corsOption);
@@ -18,7 +19,7 @@ app.use(corsOption);
 app.use(express.json()); // для собирания JSON-формата
 app.use(cookieParser());
 
-mongoose.connect(DB, {
+mongoose.connect(NODE_ENV === 'production' ? DB_PODUCTION : DB, {
   useNewUrlParser: true,
 });
 

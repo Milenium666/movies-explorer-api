@@ -1,7 +1,6 @@
 const Movie = require('../models/movie');
 
 const {
-  OK,
   INCORECT_DATA_CREATE_MOVIE,
   NO_MOVIE_WITH_SUCH_ID,
   NO_RIGTHS_DELETE_SOMEONE_MOVIE,
@@ -15,7 +14,7 @@ const NoRight = require('../error/NoRight');
 const getMovies = (req, res, next) => {
   const userId = req.user.id;
   Movie.find({ owner: userId })
-    .then((movie) => res.status(OK).send({ movie }))
+    .then((movie) => res.send({ movie }))
     .catch(next);
 };
 
@@ -39,7 +38,7 @@ function createMovie(req, res, next) {
     nameEN,
     owner,
   })
-    .then((movie) => res.status(OK).send({ movie }))
+    .then((movie) => res.send({ movie }))
     .catch((err) => {
       if (err.name === 'ValidationError') {
         next(new IncorectData(INCORECT_DATA_CREATE_MOVIE));

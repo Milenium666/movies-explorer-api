@@ -11,7 +11,7 @@ const {
   NO_USER_WITH_SUCH_ID,
   IS_VALID,
   INCORECT_DATA_USER_UPDATE,
-
+  JWT_KEY,
 } = require('../utils/constans');
 
 dotenv.config();
@@ -62,7 +62,7 @@ const login = (req, res, next) => {
           } else {
             const token = jwt.sign(
               { id: user._id },
-              NODE_ENV === 'production' ? JWT_KEY_SEKRET : 'super-strong-secret',
+              NODE_ENV === 'production' ? JWT_KEY_SEKRET : JWT_KEY,
               { expiresIn: '7d' },
             );
             res.send({ token });

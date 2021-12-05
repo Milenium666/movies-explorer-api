@@ -1,9 +1,9 @@
-const OK = 200;
 const STATUS_500 = 500;
 const salt = 10;
 
 const DB = 'mongodb://localhost:27017/moviesdb';
 
+const JWT_KEY = 'super-strong-secret';
 const RE_REGISTRATION = 'Пользователь с таким Email уже есть в системе';
 const INCORECT_DATA_REG_USER = 'Введены некрректные данные при создании пользователя';
 const SERVER_ERROR = 'Ошибка на стороне сервера';
@@ -18,7 +18,6 @@ const NO_RIGTHS_DELETE_SOMEONE_MOVIE = 'Нет прав для удаления 
 const REQ_NON_EXISTENT_ADDRESS = 'Запрос на несуществующий адрес';
 
 module.exports = {
-  OK,
   salt,
   RE_REGISTRATION,
   INCORECT_DATA_REG_USER,
@@ -34,4 +33,5 @@ module.exports = {
   DB,
   STATUS_500,
   REQ_NON_EXISTENT_ADDRESS,
+  JWT_KEY,
 };
