@@ -78,8 +78,9 @@ const getInfoUser = (req, res, next) => {
     .then((user) => {
       if (!user) {
         next(new DataNotFound(NO_USER_WITH_SUCH_ID));
+      } else {
+        res.send(user);
       }
-      res.send(user);
     })
     .catch(next);
 };

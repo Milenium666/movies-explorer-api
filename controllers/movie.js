@@ -42,8 +42,9 @@ function createMovie(req, res, next) {
     .catch((err) => {
       if (err.name === 'ValidationError') {
         next(new IncorectData(INCORECT_DATA_CREATE_MOVIE));
+      } else {
+        next(err);
       }
-      next(err);
     });
 }
 
@@ -64,8 +65,9 @@ const deleteMovie = (req, res, next) => {
     .catch((err) => {
       if (err.name === 'ReferenceError') {
         next(new DataNotFound(IS_VALID));
+      } else {
+        next(err);
       }
-      next(err);
     });
 };
 
