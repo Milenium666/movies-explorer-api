@@ -1,6 +1,8 @@
 const allowedCors = [
   'http://localhost:3000',
   'https://localhost:3000',
+  'https://localhost:3001',
+  'http://localhost:3001',
   'https://movies-explorer.elena.nomoredomains.rocks/api/',
   'http://movies-explorer.elena.nomoredomains.rocks/api/',
   'https://searchfilms.nomoredomains.rocks/',
