@@ -14,7 +14,7 @@ const NoRight = require('../error/NoRight');
 const getMovies = (req, res, next) => {
   const userId = req.user.id;
   Movie.find({ owner: userId })
-    .then((movie) => res.send({ movie }))
+    .then((movie) => res.send(movie))
     .catch(next);
 };
 
@@ -38,7 +38,7 @@ function createMovie(req, res, next) {
     nameEN,
     owner,
   })
-    .then((movie) => res.send({ movie }))
+    .then((movie) => res.send(movie))
     .catch((err) => {
       if (err.name === 'ValidationError') {
         next(new IncorectData(INCORECT_DATA_CREATE_MOVIE));

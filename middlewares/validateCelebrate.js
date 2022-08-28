@@ -26,7 +26,7 @@ const validateUpdateInfoUser = celebrate({
 
 const validateCreateMovie = celebrate({
   body: Joi.object().keys({
-    country: Joi.string().min(2).max(30).required(),
+    country: Joi.string().min(2).max(60).required(),
     director: Joi.string().min(2).max(30).required(),
     duration: Joi.number().required(),
     year: Joi.number().required(),
