@@ -14,7 +14,7 @@ const { errorHandler } = require('./middlewares/errorHandler');
 const { PORT = 3000, NODE_ENV, DB_PODUCTION } = process.env;
 
 const app = express();
-app.use(corsOption());
+app.use(corsOption);
 
 app.use(express.json()); // для собирания JSON-формата
 app.use(cookieParser());
