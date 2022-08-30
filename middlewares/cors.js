@@ -6,6 +6,7 @@ const allowedCors = [
   'https://movies-explorer.elena.nomoredomains.rocks/api/',
   'http://movies-explorer.elena.nomoredomains.rocks/api/',
   'https://searchfilms.nomoredomains.rocks/',
+  'https://searchfilms.nomoredomains.rocks',
   'http://searchfilms.nomoredomains.rocks/',
 ];
 
