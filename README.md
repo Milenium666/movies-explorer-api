@@ -3,7 +3,7 @@
 ## Описание проекта:
 Использованный технологический стек: `Express.js`, `mongoDB`, `Git`<br>
 Протестировать проект можно через приложение `Postman`<br>
-Домен сервера: https://movies-explorer.elena.nomoredomains.rocks/api<br/>
+[Домен сервера](https://movies-explorer.elena.nomoredomains.rocks/api)<br/>
 Публичный IP-адрес сервера: 51.250.15.51
 
 * по маршруту `/signup` можно зарегистрироваться. Обязательные поля `name` `email` `password`. Метод `POST`
