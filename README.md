@@ -14,7 +14,8 @@ https://movies-explorer.elena.nomoredomains.rocks/api<br/>
 * по маршруту `/users/me` можно изменить информацию о пользователе. Обязательные поля `name` `email`. Метод `PATCH` 
 * по маршруту `/movies` можно добавить фильм. Обязательные поля `country` `director` `duration` `year` `description` `image` `trailerLink` `thumbnail` `movieId` `nameRU` `nameEN`         Метод `POST`
 * по маршруту `/movies/:movieId` можно удалить добавленный вами фильм. Метод `DELETE`
-
+* 
+Если вы не хотите регистрироваться, то можно войти по этим данным и протестировать приложение:<br>
 Логин: test@test.ru<br>
 Пароль: test@test.ru<br>
 
