@@ -21,6 +21,9 @@ app.use(cookieParser());
 
 mongoose.connect(NODE_ENV === 'production' ? DB_PODUCTION : DB, {
   useNewUrlParser: true,
+  useCreateIndex: true,
+  useFindAndModify: false,
+  useUnifiedTopology: true,
 });
 
 app.use(requestLogger);
