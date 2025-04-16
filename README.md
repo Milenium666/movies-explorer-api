@@ -6,7 +6,7 @@
 
 ## Тестирование
 Протестировать проект можно через приложение `Postman`<br>
-https://movies-explorer.elena.nomoredomains.rocks/api<br/>
+http://milenium666-mesto.online/api<br/>
 
 * по маршруту `/signup` можно зарегистрироваться. Обязательные поля `name` `email` `password`. Метод `POST`
 * по маршруту `/signin` можно авторизоваться. Обязательные поля `email` `password`.  Метод `POST`
