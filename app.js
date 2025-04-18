@@ -18,7 +18,6 @@ app.use(corsOption);
 
 app.use(express.json()); // для собирания JSON-формата
 app.use(cookieParser());
-console.log(NODE_ENV);
 mongoose.connect(NODE_ENV === 'production' ? DB_PODUCTION : DB, {
   useNewUrlParser: true,
   useCreateIndex: true,

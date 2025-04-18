@@ -15,7 +15,9 @@ const {
 } = require('../utils/constans');
 
 dotenv.config();
-const { NODE_ENV, JWT_KEY_SEKRET } = process.env;
+//const { NODE_ENV, JWT_KEY_SEKRET } = process.env;
+const { NODE_ENV, JWT_SECRET } = process.env;
+
 
 const RepeatRegistEmail = require('../error/RepeatRegistEmail');
 const IncorectData = require('../error/IncorectData');
@@ -62,7 +64,9 @@ const login = (req, res, next) => {
           } else {
             const token = jwt.sign(
               { id: user._id },
-              NODE_ENV === 'production' ? JWT_KEY_SEKRET : JWT_KEY,
+              //NODE_ENV === 'production' ? JWT_KEY_SEKRET : JWT_KEY,
+              NODE_ENV === 'production' ? JWT_SECRET : JWT_KEY,
+
               { expiresIn: '7d' },
             );
             res.send({ token });
